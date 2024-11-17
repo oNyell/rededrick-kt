@@ -1,0 +1,8 @@
+{
+  "id": "commons",
+  "name": "commons",
+  "version": "1.0",
+  "description": "A simple plugin proxy for Vulcanth.",
+  "authors": ["oNyell"],
+  "main": "com.rededrick.commons.velocity.Velocity"
+}
