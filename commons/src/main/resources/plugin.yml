@@ -1,0 +1,8 @@
+name: commons
+version: 1.0
+main: com.rededrick.commons.Main
+author: oNyell
+libraries:
+  - org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0
+commands:
+  helloworld:

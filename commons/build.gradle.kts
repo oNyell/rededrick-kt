@@ -1,4 +1,3 @@
-import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 plugins {
     kotlin("jvm") version "2.0.21"
     kotlin("plugin.lombok") version "2.0.21"
@@ -11,22 +10,24 @@ version = "1.0"
 
 repositories {
     mavenCentral()
-    maven("https://repo.papermc.io/repository/maven-public/") {
-        name = "papermc-repo"
-    }
     maven("https://oss.sonatype.org/content/groups/public/") {
         name = "sonatype"
+    }
+    maven("https://repo.papermc.io/repository/maven-public/") {
+        name = "papermc"
     }
 }
 
 dependencies {
-    implementation("com.velocitypowered:velocity-api:3.4.0-SNAPSHOT")
+    //compileOnly("com.velocitypowered:velocity-api:3.4.0-SNAPSHOT")
+    annotationProcessor("com.velocitypowered:velocity-api:3.4.0-SNAPSHOT")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    implementation("org.reflections:reflections:0.9.11")
+    implementation("org.reflections:reflections:0.10.2")
     testImplementation("junit:junit:4.13.2")
+    implementation("org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT")
 }
 
-val targetJavaVersion = 17
+val targetJavaVersion = 8
 kotlin {
     jvmToolchain(targetJavaVersion)
 }
@@ -40,21 +41,6 @@ val generateTemplates = tasks.register<Copy>("generateTemplates") {
     from(templateSource)
     into(templateDest)
     expand(props)
-}
-
-
-tasks.named<ShadowJar>("shadowJar") {
-    relocate("kotlin", "com.rededrick.commons.kotlin")
-    archiveBaseName.set("commons")
-}
-
-val copyJar = tasks.register<Copy>("copyJar") {
-    from("$buildDir/libs")
-    into("C:/Users/euope/Documents/GitHub/servidores/velocity/plugins")
-    include("**/*.jar")
-}
-tasks.named("shadowJar") {
-    finalizedBy(copyJar)
 }
 
 sourceSets.main.configure { java.srcDir(generateTemplates.map { it.outputs }) }
