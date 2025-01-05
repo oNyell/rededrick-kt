@@ -22,5 +22,5 @@ o mesmo se utiliza da API do Bukkit/Paper, sendo o JavaPlugin instancionado ao i
 
 # Particles
 
-- Na class ParticleManager temos o manager das particulas, nele é a construção das particulas, fazendo a forma e o jeito que se movem, por hora, não está totalmente funcional, tendo em vista que determinadas particulas estejam indisponível para trabalho, como a FLAME, por exemplo, já que a mesma se apresenta como partícula explosíva, não contribuindo para o funcionamento da mesma.
+- Na class ParticleManager temos o manager das particulas, ele é a construção das particulas, fazendo a forma e o jeito que se movem, por hora, não está totalmente funcional, tendo em vista que determinadas particulas estejam indisponível para trabalho, como a FLAME, por exemplo, já que a mesma se apresenta como partícula explosíva, não contribuindo para o funcionamento da mesma.
 - Como descrito no tópico de Enum, futuramente teremos outros tipos de particulas, então é nessa classe que a mesma ficará, usando o vector e a Redstone para poder criar determinadas particulas de melhor controle, pintando a mesma e criando novas coisas, como capas ou animações via particula.
