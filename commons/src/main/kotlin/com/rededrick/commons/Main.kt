@@ -1,16 +1,16 @@
 package com.rededrick.commons
 
-import org.bukkit.plugin.java.JavaPlugin
 import com.rededrick.commons.commands.CommandManager
+import org.bukkit.plugin.java.JavaPlugin
 
 class Main : JavaPlugin() {
 
     override fun onEnable() {
         CommandManager.setupCommands()
-        logger.info("Plugin Rededrick Commons habilitado com sucesso!")
+        logger.info("Plugin habilitado com sucesso!")
     }
 
     override fun onDisable() {
-        logger.info("Plugin Rededrick Commons desativado.")
+        logger.info("Plugin foi desabilitado com sucesso!")
     }
 }
